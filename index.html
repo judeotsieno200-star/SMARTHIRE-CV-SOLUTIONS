@@ -12,6 +12,7 @@
             --light-gray: #f4f7f6;
             --white: #ffffff;
             --green: #27ae60;
+            --accent-blue: #007bff;
         }
 
         * {
@@ -24,6 +25,7 @@
         body {
             background-color: var(--white);
             color: #333;
+            line-height: 1.6;
         }
 
         /* Header & Navigation */
@@ -48,9 +50,10 @@
         .logo-icon {
             background: var(--navy);
             color: white;
-            padding: 8px;
+            padding: 8px 12px;
             border-radius: 5px;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .logo-text {
@@ -58,6 +61,7 @@
             font-size: 1.2rem;
             color: var(--navy);
             letter-spacing: 1px;
+            line-height: 1;
         }
 
         nav a {
@@ -70,16 +74,17 @@
         }
 
         nav a:hover {
-            color: #007bff;
+            color: var(--accent-blue);
         }
 
-        /* Hero Section - Image Updated to Professional Black Man in Office */
+        /* Hero Section */
         .hero {
             position: relative;
-            height: 550px;
+            height: 600px;
             display: flex;
             align-items: center;
-            background: url('https://pin.it/3Q117At08') center/cover;
+            /* Professional meeting background image */
+            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             padding: 0 10%;
         }
 
@@ -89,56 +94,75 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Darker overlay for better contrast */
+            /* Gradient overlay to ensure text readability on the left while showing image on the right */
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.4) 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 650px;
+            max-width: 600px;
         }
 
         .hero-content h1 {
-            font-size: 3rem;
-            color: var(--white);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 3.5rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-weight: 800;
+            line-height: 1.1;
         }
 
         .hero-content p {
             font-size: 1.4rem;
-            color: var(--white);
-            font-weight: 500;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 30px;
         }
 
         /* Services Section */
         .section-title {
             text-align: left;
-            padding: 50px 10% 20px 10%;
-            font-size: 1.8rem;
+            padding: 60px 10% 30px 10%;
+            font-size: 2rem;
             color: var(--navy);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--green);
+            margin-top: 10px;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0 10% 20px 10%;
+            gap: 25px;
+            padding: 0 10% 40px 10%;
         }
 
         .service-card {
             background: var(--white);
-            padding: 30px;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #efefef;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
         }
 
         .service-card h3 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--navy);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 15px;
         }
 
         .price-list {
@@ -148,37 +172,38 @@
         .price-list li {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #555;
         }
 
         .price-amt {
-            font-weight: bold;
+            font-weight: 700;
             color: var(--green);
         }
 
-        /* CTA Button Section - Positioned after services */
+        /* CTA Section */
         .cta-container {
-            padding: 20px 10% 60px 10%;
+            padding: 20px 10% 80px 10%;
         }
 
         .order-now-btn {
             background: var(--navy);
             color: white;
-            padding: 18px 35px;
+            padding: 20px 45px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
             display: inline-block;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 42, 58, 0.2);
+            box-shadow: 0 10px 20px rgba(26, 42, 58, 0.2);
         }
 
         .order-now-btn:hover {
-            background: #2c3e50;
+            background: var(--blue);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(26, 42, 58, 0.3);
+            box-shadow: 0 15px 25px rgba(26, 42, 58, 0.3);
         }
 
         /* How It Works Section */
@@ -189,48 +214,69 @@
 
         .process-text {
             color: #666;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-top: 20px;
-            margin-bottom: 40px;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 50px;
         }
 
         .steps {
             display: flex;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
         }
 
         .step-box {
             background: white;
-            padding: 30px;
-            border-radius: 5px;
+            padding: 40px 20px;
+            border-radius: 12px;
             flex: 1;
-            min-width: 200px;
+            min-width: 250px;
             text-align: center;
-            border: 1px solid #ddd;
-            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
 
         .step-box i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--navy);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .step-box strong {
+            font-size: 1.2rem;
+            color: var(--navy);
         }
 
         /* Footer */
         footer {
             background: var(--navy);
             color: white;
-            padding: 40px 10%;
+            padding: 60px 10% 30px 10%;
             text-align: center;
         }
 
         .footer-logo {
-            font-weight: bold;
+            font-weight: 800;
             letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .footer-credits {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            .hero { height: 450px; padding: 0 5%; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .section-title, .services-grid, .cta-container, .how-it-works { padding-left: 5%; padding-right: 5%; }
+            nav { display: none; } /* Simplified for mobile */
         }
     </style>
 </head>
@@ -239,7 +285,7 @@
 <header>
     <div class="logo-container">
         <div class="logo-icon">S</div>
-        <div class="logo-text">SMARTHIRE<br><small style="font-size: 0.6rem; color: #666;">CV SOLUTIONS</small></div>
+        <div class="logo-text">SMARTHIRE<br><small style="font-size: 0.6rem; color: #888; letter-spacing: 0;">CV SOLUTIONS</small></div>
     </div>
     <nav>
         <a href="#">Home</a>
@@ -252,7 +298,8 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>SMARTHIRE CV SOLUTIONS</h1>
-        <p>Expert CV Writing Services for Modern Professionals in Kenya</p>
+        <p>Your Gateway to Career Success in Kenya</p>
+        <a href="#services" class="order-now-btn" style="padding: 15px 30px; font-size: 1rem;">Explore Services</a>
     </div>
 </section>
 
@@ -287,36 +334,43 @@
 </section>
 
 <div class="cta-container">
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="order-now-btn">
+    <a href="#" class="order-now-btn">
         ORDER YOUR CV NOW <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
     </a>
 </div>
 
 <section class="how-it-works" id="how-it-works">
-    <h2>How It Works</h2>
+    <h2 style="color: var(--navy); font-size: 2rem;">How It Works</h2>
     <p class="process-text">
-        Stand out from the competition. We help job seekers in Kenya create high-impact documents optimized for Applicant Tracking Systems (ATS).
+        Stand out in the Kenyan job market with documents tailored for modern ATS requirements. Our process is fast, efficient, and professional.
     </p>
     <div class="steps">
         <div class="step-box">
-            <i class="fas fa-file-upload"></i><br>
-            <strong>1. Send Details</strong>
+            <i class="fas fa-file-upload"></i>
+            <strong>Step 1: Send Details</strong>
+            <p style="font-size: 0.9rem; color: #777; margin-top: 10px;">Share your current CV or career history with us.</p>
         </div>
         <div class="step-box">
-            <i class="fas fa-mobile-alt"></i><br>
-            <strong>2. Make Payment</strong>
+            <i class="fas fa-mobile-alt"></i>
+            <strong>Step 2: Payment</strong>
+            <p style="font-size: 0.9rem; color: #777; margin-top: 10px;">Secure payment via M-Pesa or Bank Transfer.</p>
         </div>
         <div class="step-box">
-            <i class="fas fa-clock"></i><br>
-            <strong>3. Get CV (24-48 hrs)</strong>
+            <i class="fas fa-clock"></i>
+            <strong>Step 3: Delivery</strong>
+            <p style="font-size: 0.9rem; color: #777; margin-top: 10px;">Receive your professional documents within 24-48hrs.</p>
         </div>
     </div>
 </section>
 
 <footer>
     <div class="footer-logo">SMARTHIRE CV SOLUTIONS</div>
-    <p>&copy; 2026 Professional CV Writing Services Kenya. All Rights Reserved.</p>
+    <p>Expert Resume Writing & Career Branding for Professionals in Kenya.</p>
+    <div class="footer-credits">
+        &copy; 2026 Professional CV Writing Services Kenya. All Rights Reserved.
+    </div>
 </footer>
 
 </body>
-</html>
+    </html>
+    
