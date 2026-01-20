@@ -3,141 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTHIRE CV SOLUTIONS</title>
+    <title>SMARTHIRE CV SOLUTIONS | Professional CV Services Kenya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #333; line-height: 1.6; }
+        :root {
+            --navy: #1a2a3a;
+            --blue: #2c3e50;
+            --light-gray: #f4f7f6;
+            --white: #ffffff;
+        }
 
-        /* Navigation */
-        nav {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            padding: 15px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.5rem; color: #1a2a3a; }
-        .nav-links a { text-decoration: none; color: #333; margin-left: 30px; font-size: 0.9rem; font-weight: 500; }
 
-        /* Hero Section */
-        .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
-                        url('https://img.freepik.com/free-photo/medium-shot-man-working-laptop_23-2149151206.jpg?t=st=1715854000~exp=1715857600~hmac=66723b7e7b5f5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e') center/cover no-repeat;
+        .logo-container {
             display: flex;
             align-items: center;
-            padding-left: 8%;
+            gap: 10px;
         }
-        .hero-content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            max-width: 500px;
-            border-radius: 4px;
-        }
-        .hero-content h1 { font-size: 2.5rem; color: #1a2a3a; margin-bottom: 15px; }
-        .hero-content p { font-size: 1.1rem; color: #555; }
 
-        /* Pricing Section */
-        .services-section { padding: 80px 8%; text-align: center; background: #f9f9f9; }
-        .services-section h2 { margin-bottom: 40px; font-size: 2rem; }
-        .pricing-container {
+        .logo-icon {
+            background: var(--navy);
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--navy);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--navy);
+            margin-left: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Hero Section - Matching the Image */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop') center/cover;
+            padding: 0 10%;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7); /* Light overlay to see text clearly */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .section-title {
+            text-align: left;
+            padding: 50px 10% 20px 10%;
+            font-size: 1.8rem;
+            color: var(--navy);
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 20px;
+            padding: 0 10% 50px 10%;
         }
-        .price-card {
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--navy);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .price-list {
+            list-style: none;
+        }
+
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .price-amt {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: var(--light-gray);
+            padding: 60px 10%;
+        }
+
+        .process-text {
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .steps {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .step-box {
             background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: left;
-            border-top: 5px solid #1a2a3a;
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border: 1px solid #ddd;
         }
-        .price-card h3 { color: #1a2a3a; margin-bottom: 20px; font-size: 1.5rem; }
-        .price-item { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #ddd; padding-bottom: 5px; }
-        .price-tag { font-weight: bold; color: #2c3e50; }
 
-        /* Process Section */
-        .how-it-works { padding: 80px 8%; text-align: center; }
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 30px 10%;
+            text-align: center;
         }
-        .step-number { font-size: 2rem; font-weight: bold; color: #1a2a3a; margin-bottom: 10px; display: block; }
 
-        footer { background: #1a2a3a; color: white; text-align: center; padding: 40px; }
+        .footer-logo {
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">SMARTHIRE CV SOLUTIONS</div>
-    <div class="nav-links">
-        <a href="#home">Home</a>
+<header>
+    <div class="logo-container">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">SMARTHIRE<br><small style="font-size: 0.6rem; color: #666;">CV SOLUTIONS</small></div>
+    </div>
+    <nav>
+        <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#how-it-works">How It Works</a>
-    </div>
-</nav>
+        <a href="#" style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 4px;">Order Now</a>
+    </nav>
+</header>
 
-<section class="hero" id="home">
+<section class="hero">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>SMARTHIRE CV SOLUTIONS</h1>
-        <p>Professional CV Writing Services in Kenya. Expert documents for every career stage.</p>
+        <p>Professional CV Writing Services in Kenya</p>
     </div>
 </section>
 
-<section class="services-section" id="services">
-    <h2>Our Service Packages</h2>
-    <div class="pricing-container">
-        <div class="price-card">
-            <h3>Entry Level</h3>
-            <div class="price-item"><span>CV Writing</span> <span class="price-tag">Ksh 500</span></div>
-            <div class="price-item"><span>Application Letter</span> <span class="price-tag">Ksh 500</span></div>
-            <div class="price-item"><span>LinkedIn Optimization</span> <span class="price-tag">Ksh 500</span></div>
-        </div>
+<h2 class="section-title" id="services">Our Services</h2>
+<section class="services-grid">
+    <div class="service-card">
+        <h3>Entry Level</h3>
+        <ul class="price-list">
+            <li>CV Writing <span class="price-amt">Ksh 500</span></li>
+            <li>Application Letter <span class="price-amt">Ksh 500</span></li>
+            <li>LinkedIn Optimization <span class="price-amt">Ksh 500</span></li>
+        </ul>
+    </div>
 
-        <div class="price-card">
-            <h3>Mid-Level</h3>
-            <div class="price-item"><span>CV Writing</span> <span class="price-tag">Ksh 1,000</span></div>
-            <div class="price-item"><span>Application Letter</span> <span class="price-tag">Ksh 1,000</span></div>
-            <div class="price-item"><span>LinkedIn Optimization</span> <span class="price-tag">Ksh 1,000</span></div>
-        </div>
+    <div class="service-card">
+        <h3>Mid-Level</h3>
+        <ul class="price-list">
+            <li>CV Writing <span class="price-amt">Ksh 1,000</span></li>
+            <li>Application Letter <span class="price-amt">Ksh 1,000</span></li>
+            <li>LinkedIn Optimization <span class="price-amt">Ksh 1,000</span></li>
+        </ul>
+    </div>
 
-        <div class="price-card">
-            <h3>Top Management</h3>
-            <div class="price-item"><span>CV Writing</span> <span class="price-tag">Ksh 2,000</span></div>
-            <div class="price-item"><span>Application Letter</span> <span class="price-tag">Ksh 2,000</span></div>
-            <div class="price-item"><span>LinkedIn Optimization</span> <span class="price-tag">Ksh 2,000</span></div>
-        </div>
+    <div class="service-card">
+        <h3>Top Management</h3>
+        <ul class="price-list">
+            <li>CV Writing <span class="price-amt">Ksh 2,000</span></li>
+            <li>Application Letter <span class="price-amt">Ksh 2,000</span></li>
+            <li>LinkedIn Optimization <span class="price-amt">Ksh 2,000</span></li>
+        </ul>
     </div>
 </section>
 
 <section class="how-it-works" id="how-it-works">
     <h2>How It Works</h2>
-    <div class="steps-grid">
-        <div>
-            <span class="step-number">01</span>
+    <p class="process-text">
+        Getting a professional CV has never been easier. We help job seekers in Kenya stand out with tailored documents that beat the ATS systems.
+    </p>
+    <div class="steps">
+        <div class="step-box">
+            <i class="fas fa-file-upload"></i><br><br>
             <strong>Send Details</strong>
-            <p>Email your current draft or career history to our team.</p>
         </div>
-        <div>
-            <span class="step-number">02</span>
+        <div class="step-box">
+            <i class="fas fa-mobile-alt"></i><br><br>
             <strong>Pay</strong>
-            <p>Secure payment via M-Pesa or Bank Transfer.</p>
         </div>
-        <div>
-            <span class="step-number">03</span>
-            <strong>Receive</strong>
-            <p>Your documents are delivered to your inbox within 24–48 hours.</p>
+        <div class="step-box">
+            <i class="fas fa-clock"></i><br><br>
+            <strong>Receive in 24-48 hrs</strong>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 SMARTHIRE CV SOLUTIONS | Nairobi, Kenya</p>
+    <div class="footer-logo">SMARTHIRE CV SOLUTIONS</div>
+    <p>&copy; 2026 Professional CV Writing Services Kenya</p>
 </footer>
 
 </body>
