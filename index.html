@@ -137,11 +137,10 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid #eee;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy pop effect */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
         }
 
-        /* POP EFFECT ON HOVER/TOUCH */
         .service-card:hover, .service-card:active {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
@@ -179,6 +178,9 @@
         /* CTA Button Section */
         .cta-container {
             padding: 20px 10% 60px 10%;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .order-now-btn {
@@ -192,6 +194,10 @@
             display: inline-block;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(26, 42, 58, 0.2);
+        }
+
+        .email-btn {
+            background: var(--accent-blue);
         }
 
         .order-now-btn:hover {
@@ -252,6 +258,12 @@
             font-size: 1.2rem;
         }
 
+        .contact-info {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -270,6 +282,9 @@
             }
             nav a {
                 margin: 0 10px;
+            }
+            .cta-container {
+                justify-content: center;
             }
         }
     </style>
@@ -327,8 +342,11 @@
 </section>
 
 <div class="cta-container">
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="order-now-btn">
-        ORDER YOUR CV NOW <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+    <a href="https://wa.me/message/5FYEZGG4LQJXG1" target="_blank" class="order-now-btn">
+        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> WHATSAPP US
+    </a>
+    <a href="mailto:smarthirecvsolutions@gmail.com" class="order-now-btn email-btn">
+        <i class="fas fa-envelope" style="margin-right: 10px;"></i> EMAIL US
     </a>
 </div>
 
@@ -355,9 +373,12 @@
 
 <footer>
     <div class="footer-logo">SMARTHIRE CV SOLUTIONS</div>
-    <p>&copy; 2026 Professional CV Writing Services Kenya. All Rights Reserved.</p>
+    <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> smarthirecvsolutions@gmail.com</p>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: https://wa.me/message/5FYEZGG4LQJXG1</p>
+    </div>
+    <p style="margin-top: 20px;">&copy; 2026 Professional CV Writing Services Kenya. All Rights Reserved.</p>
 </footer>
 
 </body>
-                                          </html>
-                                          
+</html>
