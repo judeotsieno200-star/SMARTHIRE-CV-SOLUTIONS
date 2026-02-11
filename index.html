@@ -13,314 +13,106 @@
             --white: #ffffff;
             --green: #27ae60;
             --accent-blue: #007bff;
-            /* Apple-style timing curve */
-            --apple-curve: cubic-bezier(0.28, 0.11, 0.32, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--white); color: #333; }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--white);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigation */
         header {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px); /* Apple glass effect */
-            -webkit-backdrop-filter: blur(20px);
+            background: var(--white);
             padding: 15px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { background: var(--navy); color: white; padding: 8px; border-radius: 5px; font-weight: bold; }
+        .logo-text { font-weight: 800; font-size: 1.2rem; color: var(--navy); letter-spacing: 1px; }
 
-        .logo-icon {
-            background: var(--navy);
-            color: white;
-            padding: 8px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
+        nav a { text-decoration: none; color: var(--navy); margin-left: 25px; font-size: 0.9rem; font-weight: 600; }
 
-        .logo-text {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--navy);
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--navy);
-            margin-left: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-blue);
-        }
-
-        /* Hero Section */
         .hero {
             position: relative;
-            height: 550px;
+            height: 450px;
             display: flex;
             align-items: center;
-            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover;
             padding: 0 10%;
+            color: white;
         }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 650px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            color: var(--white);
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .hero-content p {
-            font-size: 1.4rem;
-            color: var(--white);
-            font-weight: 400;
-            opacity: 0.9;
-        }
-
-        /* Services Section */
-        .section-title {
-            text-align: left;
-            padding: 80px 10% 20px 10%;
-            font-size: 2.2rem;
-            color: var(--navy);
-            letter-spacing: -1px;
-        }
+        .section-title { padding: 50px 10% 20px 10%; font-size: 1.8rem; color: var(--navy); }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            padding: 0 10% 20px 10%;
+            padding: 0 10% 40px 10%;
         }
 
         .service-card {
             background: var(--white);
-            padding: 40px;
-            border-radius: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid #eee;
-            transition: all 0.6s var(--apple-curve);
-            cursor: pointer;
-        }
-
-        .service-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #ddd;
-        }
-
-        .service-card h3 {
-            margin-bottom: 20px;
-            color: var(--navy);
-            font-size: 1.5rem;
-        }
-
-        .price-list {
-            list-style: none;
-        }
-
-        .price-list li {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .price-amt {
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        /* CTA Button */
-        .cta-container {
-            padding: 40px 10% 60px 10%;
-        }
-
-        .order-now-btn {
-            background: var(--navy);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 30px; /* Pill shape */
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: inline-block;
-            transition: all 0.4s var(--apple-curve);
-            box-shadow: 0 10px 20px rgba(26, 42, 58, 0.15);
-            border: none;
-            cursor: pointer;
-        }
-
-        .order-now-btn:hover {
-            transform: scale(1.05);
-            background: #000;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .order-now-btn:active {
-            transform: scale(0.96); /* Tactile click effect */
-        }
-
-        /* M-Pesa Modal Styling */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.active { display: flex; animation: fadeIn 0.4s var(--apple-curve); }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 24px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            transform: translateY(20px);
-            transition: 0.4s var(--apple-curve);
-        }
-
-        .modal-overlay.active .modal-content { transform: translateY(0); }
-
-        .mpesa-logo { width: 120px; margin-bottom: 20px; }
-
-        .input-group {
-            background: #f5f5f7;
-            border-radius: 12px;
-            padding: 15px;
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .input-group input {
-            border: none;
-            background: transparent;
-            font-size: 1.1rem;
-            outline: none;
-            width: 100%;
-            margin-left: 10px;
-        }
-
-        /* Scroll Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s var(--apple-curve);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* How It Works Section */
-        .how-it-works {
-            background: #fbfbfd;
-            padding: 100px 10%;
-        }
-
-        .process-text {
-            color: #6e6e73;
-            line-height: 1.6;
-            max-width: 800px;
-            margin-top: 20px;
-            margin-bottom: 40px;
-            font-size: 1.2rem;
-        }
-
-        .steps {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .step-box {
-            background: white;
-            padding: 40px;
-            border-radius: 18px;
-            flex: 1;
-            min-width: 250px;
-            text-align: left;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid #eee;
             transition: 0.3s;
+            cursor: pointer;
         }
 
-        .step-box i {
-            font-size: 1.5rem;
-            color: var(--navy);
-            margin-bottom: 20px;
-        }
+        .service-card:hover { transform: translateY(-5px); border-color: var(--green); }
+        .price-amt { font-weight: bold; color: var(--green); }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Footer */
-        footer {
-            background: var(--navy);
-            color: white;
+        /* Payment Section Styling */
+        .payment-container {
+            background: var(--light-gray);
             padding: 60px 10%;
             text-align: center;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            header { padding: 15px 5%; }
-            nav { display: none; } /* Simplified for demo */
+        .payment-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+
+        .mpesa-logo { width: 150px; margin-bottom: 20px; }
+
+        input[type="tel"] {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .pay-btn {
+            width: 100%;
+            background: var(--green);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .pay-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        footer { background: var(--navy); color: white; padding: 40px 10%; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -333,91 +125,48 @@
     <nav>
         <a href="#">Home</a>
         <a href="#services">Services</a>
-        <a href="#how-it-works">How It Works</a>
+        <a href="#payment-section">Order Now</a>
     </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>SMARTHIRE CV SOLUTIONS</h1>
         <p>Expert CV Writing Services for Modern Professionals in Kenya</p>
     </div>
 </section>
 
-<h2 class="section-title reveal" id="services">Our Services</h2>
+<h2 class="section-title" id="services">Select Your Package</h2>
 <section class="services-grid">
-    <div class="service-card reveal">
+    <div class="service-card" onclick="setPackage(500, 'Entry Level')">
         <h3>Entry Level</h3>
-        <ul class="price-list">
-            <li>CV Writing <span class="price-amt">Ksh 500</span></li>
-            <li>Application Letter <span class="price-amt">Ksh 500</span></li>
-            <li>LinkedIn Optimization <span class="price-amt">Ksh 500</span></li>
-        </ul>
+        <p>Perfect for students and fresh graduates.</p>
+        <div style="margin-top: 15px;">Ksh <span class="price-amt">500</span></div>
     </div>
 
-    <div class="service-card reveal">
+    <div class="service-card" onclick="setPackage(1000, 'Mid-Level')">
         <h3>Mid-Level</h3>
-        <ul class="price-list">
-            <li>CV Writing <span class="price-amt">Ksh 1,000</span></li>
-            <li>Application Letter <span class="price-amt">Ksh 1,000</span></li>
-            <li>LinkedIn Optimization <span class="price-amt">Ksh 1,000</span></li>
-        </ul>
+        <p>For professionals with 2-8 years experience.</p>
+        <div style="margin-top: 15px;">Ksh <span class="price-amt">1,000</span></div>
     </div>
 
-    <div class="service-card reveal">
+    <div class="service-card" onclick="setPackage(2000, 'Top Management')">
         <h3>Top Management</h3>
-        <ul class="price-list">
-            <li>CV Writing <span class="price-amt">Ksh 2,000</span></li>
-            <li>Application Letter <span class="price-amt">Ksh 2,000</span></li>
-            <li>LinkedIn Optimization <span class="price-amt">Ksh 2,000</span></li>
-        </ul>
+        <p>C-Suite, Directors, and Senior Executives.</p>
+        <div style="margin-top: 15px;">Ksh <span class="price-amt">2,000</span></div>
     </div>
 </section>
 
-<div class="cta-container reveal">
-    <button onclick="toggleModal()" class="order-now-btn">
-        ORDER YOUR CV NOW <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
-    </button>
-</div>
-
-<div class="modal-overlay" id="mpesaModal">
-    <div class="modal-content">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/1200px-M-PESA_LOGO-01.svg.png" class="mpesa-logo" alt="Mpesa">
-        <h3>Lipa na M-Pesa</h3>
-        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Enter your phone number below to receive a payment prompt.</p>
+<section class="payment-container" id="payment-section">
+    <div class="payment-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa" class="mpesa-logo">
+        <h3 id="selected-package">Please select a package above</h3>
         
-        <div class="input-group">
-            <span style="font-weight: bold; color: #111;">+254</span>
-            <input type="number" id="phoneNumber" placeholder="712345678">
-        </div>
-
-        <button onclick="handleStkPush()" id="stkBtn" class="order-now-btn" style="width: 100%; border-radius: 12px;">
-            Request Prompt
-        </button>
-
-        <button onclick="toggleModal()" style="margin-top: 20px; background: none; border: none; color: #888; cursor: pointer;">Cancel</button>
-    </div>
-</div>
-
-<section class="how-it-works" id="how-it-works">
-    <h2 class="reveal">How It Works</h2>
-    <p class="process-text reveal">
-        Stand out from the competition. We help job seekers in Kenya create high-impact documents optimized for Applicant Tracking Systems (ATS).
-    </p>
-    <div class="steps">
-        <div class="step-box reveal">
-            <i class="fas fa-file-upload"></i><br>
-            <strong>1. Send Details</strong>
-        </div>
-        <div class="step-box reveal">
-            <i class="fas fa-mobile-alt"></i><br>
-            <strong>2. Make Payment</strong>
-        </div>
-        <div class="step-box reveal">
-            <i class="fas fa-clock"></i><br>
-            <strong>3. Get CV (24-48 hrs)</strong>
-        </div>
+        <input type="tel" id="phone-number" placeholder="254712345678" value="254">
+        <input type="hidden" id="selected-amount" value="0">
+        
+        <button class="pay-btn" id="pay-button" onclick="initiateStkPush()">SEND PAYMENT PROMPT</button>
+        <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">Enter phone in 254 format. You will receive a PIN prompt on your phone.</p>
     </div>
 </section>
 
@@ -427,55 +176,53 @@
 </footer>
 
 <script>
-    // Scroll Reveal Logic
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Modal Logic
-    function toggleModal() {
-        const modal = document.getElementById('mpesaModal');
-        modal.classList.toggle('active');
+    function setPackage(amount, name) {
+        document.getElementById('selected-amount').value = amount;
+        document.getElementById('selected-package').innerText = "Paying Ksh " + amount + " for " + name;
+        document.getElementById('payment-section').scrollIntoView();
     }
 
-    // Mpesa STK Simulation
-    function handleStkPush() {
-        const btn = document.getElementById('stkBtn');
-        const phone = document.getElementById('phoneNumber').value;
+    async function initiateStkPush() {
+        const phone = document.getElementById('phone-number').value;
+        const amount = document.getElementById('selected-amount').value;
+        const btn = document.getElementById('pay-button');
 
-        if(phone.length < 9) {
-            alert("Please enter a valid phone number");
+        if (amount == "0") {
+            alert("Please select a service package first.");
             return;
         }
 
-        btn.innerText = "Requesting...";
-        btn.style.opacity = "0.7";
+        if (phone.length !== 12 || !phone.startsWith('254')) {
+            alert("Please enter a valid phone number starting with 254...");
+            return;
+        }
 
-        setTimeout(() => {
-            alert("STK Prompt sent to 254" + phone + ". Please enter your PIN.");
-            btn.innerText = "Prompt Sent!";
-            btn.style.background = "var(--green)";
+        btn.disabled = true;
+        btn.innerText = "Processing...";
+
+        try {
+            const response = await fetch('stk_push.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone: phone, amount: amount })
+            });
+
+            const data = await response.json();
             
-            setTimeout(() => {
-                toggleModal();
-                btn.innerText = "Request Prompt";
-                btn.style.background = "var(--navy)";
-                btn.style.opacity = "1";
-            }, 2000);
-        }, 1500);
+            if (data.ResponseCode === "0") {
+                alert("STK Push Sent! Enter your M-Pesa PIN on your phone to complete.");
+            } else {
+                alert("Error: " + (data.CustomerMessage || "Failed to trigger prompt."));
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Server error. Make sure stk_push.php is correctly configured on your server.");
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "SEND PAYMENT PROMPT";
+        }
     }
 </script>
 
 </body>
-            </html>
-            
+</html>
