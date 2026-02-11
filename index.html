@@ -15,10 +15,23 @@
             --accent-blue: #007bff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--white); color: #333; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: #333;
+        }
+
+        /* Header & Navigation */
         header {
             background: var(--white);
             padding: 15px 10%;
@@ -31,29 +44,91 @@
             z-index: 1000;
         }
 
-        .logo-container { display: flex; align-items: center; gap: 10px; }
-        .logo-icon { background: var(--navy); color: white; padding: 8px; border-radius: 5px; font-weight: bold; }
-        .logo-text { font-weight: 800; font-size: 1.2rem; color: var(--navy); letter-spacing: 1px; }
-
-        nav a { text-decoration: none; color: var(--navy); margin-left: 25px; font-size: 0.9rem; font-weight: 600; }
-
-        .hero {
-            position: relative;
-            height: 450px;
+        .logo-container {
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover;
-            padding: 0 10%;
-            color: white;
+            gap: 10px;
         }
 
-        .section-title { padding: 50px 10% 20px 10%; font-size: 1.8rem; color: var(--navy); }
+        .logo-icon {
+            background: var(--navy);
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--navy);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--navy);
+            margin-left: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            padding: 0 10%;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .section-title {
+            text-align: left;
+            padding: 50px 10% 20px 10%;
+            font-size: 1.8rem;
+            color: var(--navy);
+        }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            padding: 0 10% 40px 10%;
+            padding: 0 10% 20px 10%;
         }
 
         .service-card {
@@ -62,57 +137,141 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid #eee;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy pop effect */
             cursor: pointer;
         }
 
-        .service-card:hover { transform: translateY(-5px); border-color: var(--green); }
-        .price-amt { font-weight: bold; color: var(--green); }
+        /* POP EFFECT ON HOVER/TOUCH */
+        .service-card:hover, .service-card:active {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--navy);
+        }
 
-        /* Payment Section Styling */
-        .payment-container {
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--navy);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .service-card:hover h3 {
+            border-bottom-color: var(--accent-blue);
+        }
+
+        .price-list {
+            list-style: none;
+        }
+
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .price-amt {
+            font-weight: bold;
+            color: var(--green);
+        }
+
+        /* CTA Button Section */
+        .cta-container {
+            padding: 20px 10% 60px 10%;
+        }
+
+        .order-now-btn {
+            background: var(--navy);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 42, 58, 0.2);
+        }
+
+        .order-now-btn:hover {
+            background: #2c3e50;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 42, 58, 0.3);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
             background: var(--light-gray);
-            padding: 60px 10%;
+            padding: 80px 10%;
+        }
+
+        .process-text {
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .step-box {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        .step-box i {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 40px 10%;
             text-align: center;
         }
 
-        .payment-card {
-            max-width: 500px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .footer-logo {
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
         }
 
-        .mpesa-logo { width: 150px; margin-bottom: 20px; }
-
-        input[type="tel"] {
-            width: 100%;
-            padding: 15px;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            outline: none;
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            header {
+                flex-direction: column;
+                padding: 15px 5%;
+                text-align: center;
+            }
+            nav {
+                margin-top: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
         }
-
-        .pay-btn {
-            width: 100%;
-            background: var(--green);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .pay-btn:disabled { background: #ccc; cursor: not-allowed; }
-
-        footer { background: var(--navy); color: white; padding: 40px 10%; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -125,48 +284,72 @@
     <nav>
         <a href="#">Home</a>
         <a href="#services">Services</a>
-        <a href="#payment-section">Order Now</a>
+        <a href="#how-it-works">How It Works</a>
     </nav>
 </header>
 
 <section class="hero">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>SMARTHIRE CV SOLUTIONS</h1>
         <p>Expert CV Writing Services for Modern Professionals in Kenya</p>
     </div>
 </section>
 
-<h2 class="section-title" id="services">Select Your Package</h2>
+<h2 class="section-title" id="services">Our Services</h2>
 <section class="services-grid">
-    <div class="service-card" onclick="setPackage(500, 'Entry Level')">
+    <div class="service-card">
         <h3>Entry Level</h3>
-        <p>Perfect for students and fresh graduates.</p>
-        <div style="margin-top: 15px;">Ksh <span class="price-amt">500</span></div>
+        <ul class="price-list">
+            <li>CV Writing <span class="price-amt">Ksh 500</span></li>
+            <li>Application Letter <span class="price-amt">Ksh 500</span></li>
+            <li>LinkedIn Optimization <span class="price-amt">Ksh 500</span></li>
+        </ul>
     </div>
 
-    <div class="service-card" onclick="setPackage(1000, 'Mid-Level')">
+    <div class="service-card">
         <h3>Mid-Level</h3>
-        <p>For professionals with 2-8 years experience.</p>
-        <div style="margin-top: 15px;">Ksh <span class="price-amt">1,000</span></div>
+        <ul class="price-list">
+            <li>CV Writing <span class="price-amt">Ksh 1,000</span></li>
+            <li>Application Letter <span class="price-amt">Ksh 1,000</span></li>
+            <li>LinkedIn Optimization <span class="price-amt">Ksh 1,000</span></li>
+        </ul>
     </div>
 
-    <div class="service-card" onclick="setPackage(2000, 'Top Management')">
+    <div class="service-card">
         <h3>Top Management</h3>
-        <p>C-Suite, Directors, and Senior Executives.</p>
-        <div style="margin-top: 15px;">Ksh <span class="price-amt">2,000</span></div>
+        <ul class="price-list">
+            <li>CV Writing <span class="price-amt">Ksh 2,000</span></li>
+            <li>Application Letter <span class="price-amt">Ksh 2,000</span></li>
+            <li>LinkedIn Optimization <span class="price-amt">Ksh 2,000</span></li>
+        </ul>
     </div>
 </section>
 
-<section class="payment-container" id="payment-section">
-    <div class="payment-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa" class="mpesa-logo">
-        <h3 id="selected-package">Please select a package above</h3>
-        
-        <input type="tel" id="phone-number" placeholder="254712345678" value="254">
-        <input type="hidden" id="selected-amount" value="0">
-        
-        <button class="pay-btn" id="pay-button" onclick="initiateStkPush()">SEND PAYMENT PROMPT</button>
-        <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">Enter phone in 254 format. You will receive a PIN prompt on your phone.</p>
+<div class="cta-container">
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="order-now-btn">
+        ORDER YOUR CV NOW <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+    </a>
+</div>
+
+<section class="how-it-works" id="how-it-works">
+    <h2>How It Works</h2>
+    <p class="process-text">
+        Stand out from the competition. We help job seekers in Kenya create high-impact documents optimized for Applicant Tracking Systems (ATS).
+    </p>
+    <div class="steps">
+        <div class="step-box">
+            <i class="fas fa-file-upload"></i><br>
+            <strong>1. Send Details</strong>
+        </div>
+        <div class="step-box">
+            <i class="fas fa-mobile-alt"></i><br>
+            <strong>2. Make Payment</strong>
+        </div>
+        <div class="step-box">
+            <i class="fas fa-clock"></i><br>
+            <strong>3. Get CV (24-48 hrs)</strong>
+        </div>
     </div>
 </section>
 
@@ -174,55 +357,6 @@
     <div class="footer-logo">SMARTHIRE CV SOLUTIONS</div>
     <p>&copy; 2026 Professional CV Writing Services Kenya. All Rights Reserved.</p>
 </footer>
-
-<script>
-    function setPackage(amount, name) {
-        document.getElementById('selected-amount').value = amount;
-        document.getElementById('selected-package').innerText = "Paying Ksh " + amount + " for " + name;
-        document.getElementById('payment-section').scrollIntoView();
-    }
-
-    async function initiateStkPush() {
-        const phone = document.getElementById('phone-number').value;
-        const amount = document.getElementById('selected-amount').value;
-        const btn = document.getElementById('pay-button');
-
-        if (amount == "0") {
-            alert("Please select a service package first.");
-            return;
-        }
-
-        if (phone.length !== 12 || !phone.startsWith('254')) {
-            alert("Please enter a valid phone number starting with 254...");
-            return;
-        }
-
-        btn.disabled = true;
-        btn.innerText = "Processing...";
-
-        try {
-            const response = await fetch('stk_push.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ phone: phone, amount: amount })
-            });
-
-            const data = await response.json();
-            
-            if (data.ResponseCode === "0") {
-                alert("STK Push Sent! Enter your M-Pesa PIN on your phone to complete.");
-            } else {
-                alert("Error: " + (data.CustomerMessage || "Failed to trigger prompt."));
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Server error. Make sure stk_push.php is correctly configured on your server.");
-        } finally {
-            btn.disabled = false;
-            btn.innerText = "SEND PAYMENT PROMPT";
-        }
-    }
-</script>
 
 </body>
 </html>
